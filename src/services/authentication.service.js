@@ -12,7 +12,7 @@ export const authenticationService = {
                 return resolve({
                     message: 'Dados retornados com sucesso',
                     data: {
-                        username: 'Admin',
+                        name: 'Admin',
                         email: 'email@email.com',
                     },
                 });

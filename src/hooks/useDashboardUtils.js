@@ -1,6 +1,34 @@
+import {useAuthentication} from '@/hooks/useAuthentication';
+
 export const useDashboardUtils = () => {
-	function startSidebarMenuState() {
-		const sidebarElement = document.querySelector('.dashboard-layout-sidebar');
+    function startLogoutFuncionality() {
+        const { sigOut } = useAuthentication();
+
+        const logoutButton = document.querySelector('.logout');
+
+        if (logoutButton) {
+            logoutButton.addEventListener('click', (event) => {
+                event.preventDefault();
+
+                sigOut();
+
+                window.location.reload();
+            })
+        }
+    }
+
+    function startAuthenticatedFuncionalities() {
+        const { getUSerData } = useAuthentication();
+        const name = document.querySelector('.auth-username');
+        const userData = getUSerData();
+
+        if (Object.keys(userData).length) {
+            name.innerText = userData.name;
+        }
+    }
+
+    function startSidebarMenuState() {
+        const sidebarElement = document.querySelector('.dashboard-layout-sidebar');
         const contentElement = document.querySelector('.dashboard-layout-content');
         const togglerElement = document.querySelector('.sidebar-toggler');
 
@@ -16,20 +44,20 @@ export const useDashboardUtils = () => {
             });
 
             const savedSidebarState = localStorage.getItem('sidebarState');
-            
+
             if (savedSidebarState === 'open') {
                 sidebarElement.classList.add('opened');
                 contentElement.classList.add('opened');
-            } 
+            }
         }
-	}
+    }
 
-	function startDropdownListState() {
-		const parents = document.querySelectorAll('.dashboard-layout-sidebar-menu-parent');
+    function startDropdownListState() {
+        const parents = document.querySelectorAll('.dashboard-layout-sidebar-menu-parent');
 
         parents.forEach((parent, index) => {
             const listId = `menu-${index}`;
-            let isOpen = localStorage.getItem(listId) === 'open'; 
+            let isOpen = localStorage.getItem(listId) === 'open';
 
             const toggleList = () => {
                 const listNode = parent.parentNode.querySelector('.dashboard-layout-sidebar-menu-children ul');
@@ -60,14 +88,16 @@ export const useDashboardUtils = () => {
                 toggleList();
             })
         });
-	}
+    }
 
-	function starstartDashboardModule() {
-		startSidebarMenuState();
-		startDropdownListState();
-	}
+    function starstartDashboardModule() {
+        startSidebarMenuState();
+        startDropdownListState();
+        startLogoutFuncionality();
+        startAuthenticatedFuncionalities();
+    }
 
-	return {
-		starstartDashboardModule,
-	};
+    return {
+        starstartDashboardModule,
+    };
 };
