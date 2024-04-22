@@ -33,6 +33,7 @@ export const useRouter = () => {
 
 				const script = document.createElement('script');
 				script.src = pathJS;
+				script.type = 'module';
 				document.body.appendChild(script);
 
 				starstartDashboardModule();

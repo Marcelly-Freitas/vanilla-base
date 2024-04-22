@@ -5,7 +5,10 @@ import { useRouter } from '@/hooks/useRouter.js';
 const { loadPage, routeMiddleware} = useRouter();
 
 export function navigateToRoute(event, route, options = {}) {
-    event.preventDefault();
+    if (event) {
+        event.preventDefault();
+    }
+    
     page(route, options);
 }
 
