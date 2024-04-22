@@ -20,7 +20,7 @@ export const useDashboardUtils = () => {
             if (savedSidebarState === 'open') {
                 sidebarElement.classList.add('opened');
                 contentElement.classList.add('opened');
-            }
+            } 
         }
 	}
 
@@ -35,22 +35,15 @@ export const useDashboardUtils = () => {
                 const listNode = parent.parentNode.querySelector('.dashboard-layout-sidebar-menu-children ul');
 
                 if (listNode) {
-                    const linksNodes = listNode.querySelectorAll('li');
                     const iconNode = parent.querySelector('.dropdown-icon');
-                    const totalHeight = Array.from(linksNodes).reduce((acc, el) => {
+                    const totalHeight = Array.from((listNode.querySelectorAll('li') || [])).reduce((acc, el) => {
                         const height = parseFloat(window.getComputedStyle(el).height);
                         return acc + height;
                     }, 0);
 
                     parent.classList.toggle('opened');
                     iconNode.classList.toggle('rotate-180');
-
-                    if (isOpen) {
-                        listNode.style.maxHeight = `${totalHeight}px`;
-                    } else {
-                        listNode.style.maxHeight = '0';
-                    }
-    
+                    listNode.style.maxHeight = isOpen ? `${totalHeight}px` : '0';
                     localStorage.setItem(listId, isOpen ? 'open' : 'closed');
                 }
             };
