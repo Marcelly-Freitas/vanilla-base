@@ -1,4 +1,5 @@
 import { useAuthentication } from '@/hooks/useAuthentication';
+import { useMask } from './useMask';
 
 export const useDashboardUtils = () => {
     function startLogoutFuncionality() {
@@ -141,10 +142,12 @@ export const useDashboardUtils = () => {
 
 
     function starstartDashboardModule() {
+        const { getAllInputsMask } = useMask();
         startSidebarMenuState();
         startDropdownListState();
         startLogoutFuncionality();
         startAuthenticatedFuncionalities();
+        getAllInputsMask();
     }
 
     return {

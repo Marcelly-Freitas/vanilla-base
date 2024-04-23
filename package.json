@@ -10,5 +10,8 @@
     "@iconify/iconify": "^3.1.1",
     "page": "^1.11.6",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "vanilla-masker": "^1.2.0"
   }
 }
