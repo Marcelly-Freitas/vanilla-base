@@ -4,7 +4,7 @@ export const authenticationService = {
             setTimeout(() => {
                 if (username !== 'email@email.com' || password !== 'admin') {
                     return reject({
-                        message: 'Dados retornados com sucesso',
+                        message: 'Usuário ou senha inválidos',
                         data: [],    
                     });
                 }
