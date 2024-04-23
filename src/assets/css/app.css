@@ -3,6 +3,7 @@
 @import '_reset.css';
 @import '_utils.css';
 @import '_layout.css';
+@import '_notify.css';
 
 @import 'modules/aluno_cadastro.css';
 @import 'modules/notfound.css';

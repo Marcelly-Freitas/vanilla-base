@@ -1,4 +1,4 @@
-import {useAuthentication} from '@/hooks/useAuthentication';
+import { useAuthentication } from '@/hooks/useAuthentication';
 
 export const useDashboardUtils = () => {
     function startLogoutFuncionality() {
@@ -90,6 +90,56 @@ export const useDashboardUtils = () => {
         });
     }
 
+    function showNotification(notificationOptions) {
+        
+        if (!notificationOptions || typeof notificationOptions !== 'object') {
+            console.error('showNotification: Objeto de opções inválido.');
+            return;
+        }
+    
+        const { title, message, type = 'success', duration = 6000 } = notificationOptions;
+    
+        
+        if (!title || !message) {
+            console.error('showNotification: Parâmetros incompletos.');
+            return;
+        }
+    
+        const notificationContainer = document.createElement('div');
+        notificationContainer.classList.add('notification');
+        notificationContainer.classList.add('slide-in'); 
+    
+        const notificationTitle = document.createElement('span');
+        notificationTitle.classList.add('notification-title');
+        notificationTitle.textContent = `${title}`;
+        notificationContainer.appendChild(notificationTitle);
+
+        const notificationContent = document.createElement('span');
+        notificationContent.classList.add('notification-content');
+        notificationContent.textContent = `${message}`;
+        notificationContainer.appendChild(notificationContent);
+    
+        
+        if (type === 'success' || type === 'error' || type === 'warning' || type === 'info' || type === 'primary') {
+            notificationContainer.classList.add(type);
+        } else {
+            console.error('showNotification: Tipo de notificação inválido.');
+            return;
+        }
+    
+        document.body.appendChild(notificationContainer);
+    
+        setTimeout(() => {
+            notificationContainer.classList.remove('slide-in'); 
+            notificationContainer.classList.add('slide-out'); 
+    
+            setTimeout(() => {
+                notificationContainer.remove();
+            }, 500); 
+        }, duration);
+    }
+
+
     function starstartDashboardModule() {
         startSidebarMenuState();
         startDropdownListState();
@@ -99,5 +149,6 @@ export const useDashboardUtils = () => {
 
     return {
         starstartDashboardModule,
+        showNotification,
     };
 };

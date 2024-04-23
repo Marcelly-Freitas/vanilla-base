@@ -4,4 +4,10 @@
 	--text-color-default: #0C098E;
 	--sidebar-opened-width: 300px;
 	--sidebar-closed-width: 60px;
+
+	--color-success: #4caf50;
+    --color-error: #f44336;
+    --color-warning: #fbbf24;
+    --color-info: #2196f3;
+    --color-primary: #0C098E;
 }
