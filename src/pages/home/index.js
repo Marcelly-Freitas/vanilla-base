@@ -1,3 +1,7 @@
+import './index.css';
+
+console.log('módulo home');
+
 // import { useDashboardUtils } from "@/hooks/useDashboardUtils";
 
 

@@ -1,3 +1,5 @@
+import './index.css';
+
 const form = document.querySelector('.form-cadastro-aluno');
 
 if (form) {

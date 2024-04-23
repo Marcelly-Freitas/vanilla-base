@@ -1,4 +1,5 @@
 import { useAuthentication } from "@/hooks/useAuthentication";
+import './index.css';
 
 const formLogin = document.getElementById('form-login');
 const { sigIn } = useAuthentication();

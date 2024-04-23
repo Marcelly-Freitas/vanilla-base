@@ -1,1 +1,3 @@
-console.log('modulo de boletim');
+import './index.css';
+
+console.log('módulo de boletim');
