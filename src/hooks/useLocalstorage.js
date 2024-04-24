@@ -3,6 +3,14 @@ class LocalStorageUtility {
         this.collectionName = collectionName;
     }
 
+    sortCollection(collection = []) {
+        const sorted = collection.sort((a, b) => {
+            return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
+        });
+
+        return sorted;
+    }
+
     addItem(item) {
         const collection = this.getCollection();
         collection.push(item);
@@ -37,7 +45,7 @@ class LocalStorageUtility {
 
     getCollection() {
         const collectionString = localStorage.getItem(this.collectionName);
-        return collectionString ? JSON.parse(collectionString) : [];
+        return collectionString ? this.sortCollection(JSON.parse(collectionString)) : [];
     }
 }
 
@@ -55,15 +63,15 @@ export const useLocalStorage = (collectionName) => {
     };
 
     const updateItem = (id, data) => {
-        utility.updateItem(id, data);
+        return utility.updateItem(id, data);
     };
 
     const removeItem = (id) => {
-        utility.removeItem(id);
+        return utility.removeItem(id);
     };
 
     const getCollection = () => {
-        utility.getCollection();
+        return utility.getCollection();
     }
 
     return {

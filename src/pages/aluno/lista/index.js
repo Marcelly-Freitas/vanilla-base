@@ -2,27 +2,43 @@ import { studentEntityService } from '@/services/studentEntityService.service';
 import { useDOMManager } from '@/hooks/useDOMManager';
 import './index.css';
 
-const { createTable } = useDOMManager();
+async function startStudentListModule() {
+    const { createTable, createTableActions } = useDOMManager();
 
-const wrapper = document.querySelector('.aluno-lista-wrapper');
+    const wrapper = document.querySelector('.aluno-lista-wrapper');
 
-if (wrapper) {
-    const loadingElement = document.createElement('div');
-    
+    if (wrapper) {
+        if (document.querySelector('.loading')) {
+            return false;
+        }
 
-    loadingElement.innerHTML = 'Carregando...';
+        const loadingElement = document.createElement('div');
+        loadingElement.classList.add('loading');
+        
 
-    wrapper.appendChild(loadingElement);
+        loadingElement.innerHTML = 'Carregando...';
 
-    const { data: collection } = await studentEntityService.getAll();
+        wrapper.appendChild(loadingElement);
 
-    const headers = [
-        { label: 'Nome', key: 'nome' }, 
-        { label: 'Email', key: 'email' }
-    ];
-    
-    const tableElement = createTable(collection, headers);
-    
-    loadingElement.remove();    
-    wrapper.appendChild(tableElement);
+        const { data: collection } = await studentEntityService.getAll();
+
+        const headers = [
+            { label: 'Nome', key: 'nome' }, 
+            { label: 'Email', key: 'email' }
+        ];
+        
+        const tableElement = createTable(collection, headers);
+
+        createTableActions(tableElement);
+        
+        loadingElement.remove();    
+        wrapper.appendChild(tableElement);
+    }
 }
+
+startStudentListModule();
+
+window.addEventListener('changepage', function(event) {
+    console.log('carreguei aqui');
+    startStudentListModule();
+});

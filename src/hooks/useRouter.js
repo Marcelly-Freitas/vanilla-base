@@ -31,6 +31,14 @@ export const useRouter = () => {
 					document.getElementById('app').innerHTML = html;
 				}
 
+				const scripts = document.querySelectorAll('script');
+
+				scripts.forEach((script) => {
+					if (script.getAttribute('src') === pathJS) {
+						script.remove();
+					}
+				})
+				
 				const script = document.createElement('script');
 				script.src = pathJS;
 				script.type = 'module';
@@ -45,7 +53,16 @@ export const useRouter = () => {
 	}
 
 	function routeMiddleware(name = 'guest') {
+		function lauchEvent() {
+			setTimeout(() => {
+				var mudancaPaginaEvent = new Event('changepage');
+				window.dispatchEvent(mudancaPaginaEvent);
+			}, 100);
+		}
+
 		function requireAuth(ctx, next) {
+			lauchEvent();
+
 			if (!isAuthenticated()) {
 				page.redirect('/login');
 			} else {
@@ -53,6 +70,8 @@ export const useRouter = () => {
 			}
 		}
 		function requireGuest(ctx, next) {
+			lauchEvent();
+
 			if (isAuthenticated()) {
 				page.redirect('/');
 			} else {
