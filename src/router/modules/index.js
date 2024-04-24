@@ -21,6 +21,13 @@ export const RouteModules = [
 		moduleJS: '/src/pages/aluno/cadastro/index.js'
 	},
 	{ 
+		path: '/aluno/lista', 
+		layout: 'dashboard', 
+		permission: 'auth', 
+		moduleHTML: '/src/pages/aluno/lista/index.html', 
+		moduleJS: '/src/pages/aluno/lista/index.js'
+	},
+	{ 
 		path: '/aluno/matricula', 
 		layout: 'dashboard', 
 		permission: 'auth', 

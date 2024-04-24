@@ -21,10 +21,12 @@ export const useDashboardUtils = () => {
     function startAuthenticatedFuncionalities() {
         const { getUSerData } = useAuthentication();
         const name = document.querySelector('.auth-username');
+        const image = document.querySelector('.auth-image');
         const userData = getUSerData();
 
         if (Object.keys(userData).length) {
             name.innerText = userData.name;
+            image.setAttribute('src', userData.image);
         }
     }
 

@@ -14,6 +14,7 @@ export const authenticationService = {
                     data: {
                         name: 'Admin',
                         email: 'email@email.com',
+                        image: 'https://img.freepik.com/fotos-premium/um-personagem-de-desenho-animado-do-avatar-do-jogo_667286-2738.jpg '
                     },
                 });
             }, 600);
