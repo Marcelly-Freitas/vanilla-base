@@ -1,4 +1,4 @@
-import { useLocalStorage } from '@/hooks/useLocalstorage';
+import { useLocalStorage } from '/src/hooks/useLocalstorage';
 
 const COLLECTION_NAME = 'student-collection';
 

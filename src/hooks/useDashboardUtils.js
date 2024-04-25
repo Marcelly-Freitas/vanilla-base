@@ -1,4 +1,4 @@
-import { useAuthentication } from '@/hooks/useAuthentication';
+import { useAuthentication } from '/src/hooks/useAuthentication.js';
 import { useMask } from './useMask';
 
 export const useDashboardUtils = () => {

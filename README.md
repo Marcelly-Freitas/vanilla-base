@@ -216,7 +216,7 @@ Chame esse service no seu módulo e utilize a vontade.
 Em `src/pages/aluno/visualizar_aluno.js`:
 
 ```js
-import { alunoService } from '@/services/alunoService.service.js';
+import { alunoService } from '/src/services/alunoService.service.js';
 
 const meuButton = document.getElementById('meu_button');
 const id = 1;

@@ -1,6 +1,5 @@
-import { studentEntityService } from '@/services/studentEntityService.service';
-import { useDOMManager } from '@/hooks/useDOMManager';
-import './index.css';
+import { studentEntityService } from '/src/services/studentEntityService.service.js';
+import { useDOMManager } from '/src/hooks/useDOMManager.js';
 
 async function startStudentListModule() {
     const { createTable, createTableActions } = useDOMManager();
@@ -36,9 +35,17 @@ async function startStudentListModule() {
     }
 }
 
-startStudentListModule();
 
-window.addEventListener('changepage', function(event) {
-    console.log('carreguei aqui');
-    startStudentListModule();
-});
+import './index.css';
+
+export default {
+    init() {
+        startStudentListModule();
+
+        window.addEventListener('changepage', function(event) {
+            console.log('carreguei aqui');
+            startStudentListModule();
+        });
+    }
+}
+

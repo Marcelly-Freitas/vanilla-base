@@ -1,8 +1,10 @@
-import { studentEntityService } from '@/services/studentEntityService.service';
-import { useDashboardUtils } from '@/hooks/useDashboardUtils';
+import { studentEntityService } from '@/services/studentEntityService.service.js';
+import { useDashboardUtils } from '@/hooks/useDashboardUtils.js';
 import { faker } from '@faker-js/faker';
 import './index.css';
 import page from 'page';
+
+
 
 function startStudentRegisterModule() {
     const form = document.querySelector('.form-cadastro-aluno');
@@ -39,8 +41,16 @@ function startStudentRegisterModule() {
     }
 }
 
-window.addEventListener('changepage', function(event) {
-    startStudentRegisterModule();
-});
+export default {
+    init() {
+        startStudentRegisterModule();
+
+        window.addEventListener('changepage', function(event) {
+            startStudentRegisterModule();
+        });
+    }
+}
+
+
 
 
