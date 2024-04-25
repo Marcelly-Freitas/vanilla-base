@@ -21,6 +21,13 @@ const RouteModules = [
 		moduleJS: () => import('@/pages/aluno/cadastro/index.js'),
 	},
 	{ 
+		path: '/aluno/editar/:id', 
+		layout: 'dashboard', 
+		permission: 'auth', 
+		moduleHTML: () => import('@/pages/aluno/editar/index.html?raw'), 
+		moduleJS: () => import('@/pages/aluno/editar/index.js'),
+	},
+	{ 
 		path: '/aluno/lista', 
 		layout: 'dashboard', 
 		permission: 'auth', 

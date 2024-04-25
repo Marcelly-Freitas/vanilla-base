@@ -1,72 +1,52 @@
+import { useFakeRequest } from '@/hooks/useFakeRequest';
 import { useLocalStorage } from '/src/hooks/useLocalstorage';
 
 const COLLECTION_NAME = 'student-collection';
 
+const { fakeRequest } = useFakeRequest();
+const { 
+    getCollection, 
+    addItem, 
+    getItem, 
+    updateItem, 
+    removeItem 
+} = useLocalStorage(COLLECTION_NAME);
+
 export const studentEntityService = {
     async getAll() {
-        const { getCollection } = useLocalStorage(COLLECTION_NAME);
-
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                return resolve({
-                    message: 'Dados retornados com sucesso',
-                    data: getCollection(),
-                });
-            }, 600);
+        return fakeRequest({
+            message: 'Dados retornados com sucesso',
+            data: getCollection(),
         });
     },
     async getByCode(id) {
-        const { getItem } = useLocalStorage(COLLECTION_NAME);
-
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                return resolve({
-                    message: 'Dados retornados com sucesso',
-                    data: getItem(id),
-                });
-            }, 600);
+        return fakeRequest({
+            message: 'Dados retornados com sucesso',
+            data: getItem(id),
         });
     },
     async create(data = {}) {
-        const { addItem, getCollection } = useLocalStorage(COLLECTION_NAME);
+        addItem(data);
 
-        return new Promise((resolve) => {
-            addItem(data);
-
-            setTimeout(() => {
-                return resolve({
-                    message: 'Dados retornados com sucesso',
-                    data: [ ...getCollection()].pop(),
-                });
-            }, 600);
+        return fakeRequest({
+            message: 'Dados retornados com sucesso',
+            data: [...getCollection()].shift(),
         });
     },
     async update(id, data = {}) {
-        const { updateItem, getItem } = useLocalStorage(COLLECTION_NAME);
+        updateItem(id, data);
 
-        return new Promise((resolve) => {
-            updateItem(id, data);
-
-            setTimeout(() => {
-                return resolve({
-                    message: 'Dados retornados com sucesso',
-                    data: getItem(id),
-                });
-            }, 600);
+        return fakeRequest({
+            message: 'Dados retornados com sucesso',
+            data: getItem(id),
         });
     },
     async delete(id) {
-        const { removeItem } = useLocalStorage(COLLECTION_NAME);
+        removeItem(id);
 
-        return new Promise((resolve) => {
-            removeItem(id);
-
-            setTimeout(() => {
-                return resolve({
-                    message: 'Dados retornados com sucesso',
-                    data: [],
-                });
-            }, 600);
+        return fakeRequest({
+            message: 'Dados retornados com sucesso',
+            data: [],
         });
     }
 }

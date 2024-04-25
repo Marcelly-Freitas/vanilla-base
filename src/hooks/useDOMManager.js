@@ -48,6 +48,7 @@ export const useDOMManager = () => {
                 const row = document.createElement('tr');
                 row.classList.add('global-el-table-row');
                 row.classList.add('body-row');
+                row.setAttribute('data-id', i.id);
         
                 headers.forEach((header) => {
                     const cell = document.createElement('td');
@@ -81,13 +82,19 @@ export const useDOMManager = () => {
 
             tableBodyRow.forEach(row => {
                 const buttonEdit = document.createElement('button');
-                buttonEdit.textContent = 'Editar';
-                const buttonDelete = document.createElement('button');
-                buttonDelete.textContent = 'Deletar';
+                buttonEdit.classList.add('edit-button');
+                buttonEdit.innerHTML = '<span class="iconify-inline" data-icon="ic:outline-edit"></span>';
 
+                const buttonDelete = document.createElement('button');
+                buttonDelete.classList.add('delete-button');
+                buttonDelete.innerHTML = '<span class="iconify-inline" data-icon="ic:outline-delete"></span>';
+
+                const actionsWrapper = document.createElement('div');
+                actionsWrapper.classList.add('actions-wrapper');
                 const td = document.createElement('td');
-                td.appendChild(buttonEdit);
-                td.appendChild(buttonDelete);
+                actionsWrapper.appendChild(buttonEdit);
+                actionsWrapper.appendChild(buttonDelete);
+                td.appendChild(actionsWrapper);
                 row.appendChild(td);
             })
         }
