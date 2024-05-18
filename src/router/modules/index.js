@@ -7,6 +7,13 @@ const RouteModules = [
 		moduleJS: () => import('@/pages/authentication/login/index.js'),
 	},
 	{ 
+		path: '/recuperar', 
+		layout: 'auth', 
+		permission: 'guest', 
+		moduleHTML: () => import('@/pages/authentication/recovery/index.html?raw'), 
+		moduleJS: () => import('@/pages/authentication/recovery/index.js'),
+	},
+	{ 
 		path: '/', 
 		layout: 'dashboard', 
 		permission: 'auth', 
@@ -91,11 +98,18 @@ const RouteModules = [
 		moduleJS: () => import('@/pages/turmas/cadastrar/index.js'),
 	},
 	{ 
-		path: '/turmas/lancar_frequencia', 
+		path: '/turmas/frequencia/lista', 
 		layout: 'dashboard', 
 		permission: 'auth', 
-		moduleHTML: () => import('@/pages/turmas/lancar_frequencia/index.html?raw'), 
-		moduleJS: () => import('@/pages/turmas/lancar_frequencia/index.js'),
+		moduleHTML: () => import('@/pages/turmas/frequencia_lista/index.html?raw'), 
+		moduleJS: () => import('@/pages/turmas/frequencia_lista/index.js'),
+	},
+	{ 
+		path: '/turmas/frequencia/form', 
+		layout: 'dashboard', 
+		permission: 'auth', 
+		moduleHTML: () => import('@/pages/turmas/frequencia_form/index.html?raw'), 
+		moduleJS: () => import('@/pages/turmas/frequencia_form/index.js'),
 	},
 	{ 
 		path: '/turmas/matricula', 
@@ -110,6 +124,20 @@ const RouteModules = [
 		permission: 'auth', 
 		moduleHTML: () => import('@/pages/turmas/visualizar/index.html?raw'), 
 		moduleJS: () => import('@/pages/turmas/visualizar/index.js'),
+	},
+	{ 
+		path: '/turmas/notas/lista', 
+		layout: 'dashboard', 
+		permission: 'auth', 
+		moduleHTML: () => import('@/pages/turmas/notas_lista/index.html?raw'), 
+		moduleJS: () => import('@/pages/turmas/notas_lista/index.js'),
+	},
+	{ 
+		path: '/turmas/notas/form', 
+		layout: 'dashboard', 
+		permission: 'auth', 
+		moduleHTML: () => import('@/pages/turmas/notas_form/index.html?raw'), 
+		moduleJS: () => import('@/pages/turmas/notas_form/index.js'),
 	},
 	{ 
 		path: '/settings', 

@@ -1,3 +1,16 @@
+.w-full {
+    width: 100%;
+}
+.w-screen {
+    width: 100vh;
+}
+.h-full {
+    width: 100%;
+}
+.h-screen {
+    width: 100vh;
+}
+
 .rotate-90 {
     transform: rotate(90deg);
 }
@@ -302,6 +315,14 @@
 
 .text-white {
     color: #fff;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-semibold {
+    font-weight: 600;
 }
 
 .bg-black {

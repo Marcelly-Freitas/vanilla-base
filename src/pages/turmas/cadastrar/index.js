@@ -3,6 +3,6 @@ import './index.css';
 
 export default {
     init() {
-        console.log('turme cadastrar');
+        console.log('turma cadastrar');
     }
 }
