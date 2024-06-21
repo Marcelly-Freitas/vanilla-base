@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
 	plugins: [],
 	build: {
+		outDir: 'root',
 		chunkSizeWarningLimit: 1024 * 6,
 	},
 	server: {
