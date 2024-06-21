@@ -1,9 +1,8 @@
 import page from 'page';
 import { createModules, createNotFoundModules } from './modules/index.js';
 import { useRouter } from '/src/hooks/useRouter.js';
-import notfound from '@/pages/notfound/index.js';
 
-const { loadPage, routeMiddleware} = useRouter();
+const { loadPage, routeMiddleware } = useRouter();
 
 export function navigateToRoute(event, route, options = {}) {
     if (event) {

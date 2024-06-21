@@ -9,7 +9,6 @@ const {
     addItem, 
     getItem, 
     updateItem, 
-    removeItem 
 } = useLocalStorage(COLLECTION_NAME);
 
 export const studentEntityService = {

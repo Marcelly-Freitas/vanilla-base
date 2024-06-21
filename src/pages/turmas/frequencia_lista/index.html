@@ -1,65 +1,26 @@
-
-<div class="page-wrapper frequencia-page">
-    <div class="flex justify-between gap-4 items-center">
-        <h1 class="text-primary">Lançar Frequência</h1>
-    </div>
-        
-    <label id="textoLabelPesquisarTurmas">Pesquisar Turmas:</label>
-        
-    <div id="pesquisarTurmas">
-        <input type="text" id="TURMAInput" name="turma" maxlength="14">
-        <input type="submit" id="botaoPesquisar" value=" ">
+<div class="flex flex-col gap-6 frequencia-page">
+    <div class="title">
+        <div>
+            <h1>Lançar frequência</h1>
+        </div>
     </div>
 
-    <div id="linha"></div>
-        <div class="card">
-            <div class="lista-mae">
-                <div class="lista-filho">
-                    <div><span class="font-bold text-primary">Física Aplicada</span></div>
-                    <div><span class="font-bold">Ano: 2016</span></div>
-                    <div><span class="font-bold">Responsável: Prof. Maria Cassia</span></div>
-                    <div>
-                        <button class="btn btn-primary" onclick="navigateToRoute(event, '/turmas/frequencia/form')">Lançar Frequência</button>
-                    </div>
-                </div>
-                <div class="lista-filho">
-                    <div><span class="font-bold text-primary">Química Geral</span></div>
-                    <div><span class="font-bold">Ano: 2016</span></div>
-                    <div><span class="font-bold">Responsável: Prof. Maria Cassia</span></div>
-                    <div>
-                        <button class="btn btn-primary" onclick="navigateToRoute(event, '/turmas/frequencia/form')">Lançar Frequência</button>
-                    </div>
-                </div>
-                <div class="lista-filho">
-                    <div><span class="font-bold text-primary">História</span></div>
-                    <div><span class="font-bold">Ano: 2016</span></div>
-                    <div><span class="font-bold">Responsável: Prof. Maria Cassia</span></div>
-                    <div>
-                        <button class="btn btn-primary" onclick="navigateToRoute(event, '/turmas/frequencia/form')">Lançar Frequência</button>
-                    </div>
-                </div>
-                <div class="lista-filho">
-                    <div><span class="font-bold text-primary">Gramática</span></div>
-                    <div><span class="font-bold">Ano: 2016</span></div>
-                    <div><span class="font-bold">Responsável: Prof. Maria Cassia</span></div>
-                    <div>
-                        <button class="btn btn-primary" onclick="navigateToRoute(event, '/turmas/frequencia/form')">Lançar Frequência</button>
-                    </div>
-                </div>
-                <div class="lista-filho">
-                    <div><span class="font-bold text-primary">Geografia</span></div>
-                    <div><span class="font-bold">Ano: 2016</span></div>
-                    <div><span class="font-bold">Responsável: Prof. Maria Cassia</span></div>
-                    <div>
-                        <button class="btn btn-primary" onclick="navigateToRoute(event, '/turmas/frequencia/form')">Lançar Frequência</button>
-                    </div>
-                </div>
+    <div class="flex flex-col gap-4">
+        <label class="text-primary font-bold text-sm">Pesquisar turma</label>
 
+        <form class="frequencia-search-form">
+            <input type="search" placeholder="Pesquisar turma" id="search" name="search" value="Física" required>
+            <button type="submit">
+                <span class="iconify-inline" data-icon="ic:baseline-search"></span>
+            </button>
+        </form>
+    </div>
+
+    <div class="card">
+        <div class="flex flex-col gap-4">
+            <div class="lista-wrapper">
+                <h4 class="frequencia-empty-title">Utilize os filtros acima para pesquisar uma turma</h4>
             </div>
-
-            <div class="outrasPaginas" id="paginaAtual">1</div>
-            <div class="outrasPaginas">2</div>
-            <div class="outrasPaginas">3</div>
         </div>
     </div>
 </div>
