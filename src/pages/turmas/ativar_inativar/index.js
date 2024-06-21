@@ -1,3 +1,8 @@
+
 import './index.css';
 
-console.log('modulo de ativar desativar');
+export default {
+    init() {
+        console.log('turma ativar/inativar');
+    }
+}

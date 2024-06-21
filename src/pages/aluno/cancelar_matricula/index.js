@@ -1,3 +1,10 @@
+
 import './index.css';
 
-console.log('modulo de cancelar matricula');
+export default {
+    init() {
+        var cancelButtons = document.querySelectorAll('.button-cancelar');
+        var activeButtons = document.querySelectorAll('.button-ativar');
+        var inactiveButtons = document.querySelectorAll('.button-desativar');
+    }
+}
